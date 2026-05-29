@@ -8,7 +8,7 @@ export const profile = {
   email: "dhruvinmalot.official21@gmail.com",
   phone: "+91 9166282927",
   location: "Pune, India",
-  resumePath: "/resume-dhruvin-malot.pdf",
+  resumePath: `${import.meta.env.BASE_URL}resume-dhruvin-malot.pdf`,
   university: "MIT World Peace University",
   degree: "B.Tech in Computer Engineering",
   educationRange: "2022 – Present",

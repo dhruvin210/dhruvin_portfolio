@@ -77,7 +77,7 @@ function Contact() {
             <div className="relative mb-6 flex items-center gap-4">
               <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-2xl border border-white/10 shadow-glow">
                 <img
-                  src="/profile-photo.jpg"
+                  src={`${import.meta.env.BASE_URL}profile-photo.jpg`}
                   alt={`Portrait of ${profile.name}`}
                   loading="lazy"
                   className="h-full w-full object-cover"

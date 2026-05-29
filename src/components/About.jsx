@@ -23,7 +23,7 @@ function PhotoFrame() {
         className="gradient-border relative h-full w-full overflow-hidden rounded-[36px] border border-white/10 bg-ink-900 shadow-glow"
       >
         <img
-          src="/profile-photo.jpg"
+          src={`${import.meta.env.BASE_URL}profile-photo.jpg`}
           alt={`Portrait of ${profile.name}`}
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover"
