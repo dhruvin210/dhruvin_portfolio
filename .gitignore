@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.vite-*.log
+.vite-dev-*.log
+.http-preview*.log
+qa-*.png
+qa-dom*.html
+.chrome-profile*/
+.edge-profile*/
