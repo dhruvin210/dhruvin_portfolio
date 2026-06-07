@@ -20,7 +20,7 @@ function App() {
       <ScrollToTop />
       <Background />
       <Navbar />
-      <main className="relative">
+      <main className="relative z-[2]">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects/:slug" element={<CaseStudy />} />

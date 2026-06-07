@@ -1,10 +1,7 @@
 import { motion } from "framer-motion";
-import { lazy, Suspense } from "react";
 import { ArrowRight, Download, Sparkles, Stethoscope } from "lucide-react";
 import { profile } from "../data/portfolio";
 import { GithubIcon, LinkedinIcon } from "./BrandIcons";
-
-const HeroScene = lazy(() => import("../three/HeroScene"));
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -38,38 +35,66 @@ const socialIcons = [
 
 function Hero() {
   return (
-    <section id="home" className="relative flex min-h-screen items-center pt-32">
-      <div className="mx-auto grid w-full max-w-6xl items-center gap-10 px-6 lg:grid-cols-[1.05fr_1fr]">
-        <div>
-          <motion.div initial="hidden" animate="show" custom={0} variants={fadeUp} className="mb-6">
-            <span className="section-eyebrow">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400/70" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-              </span>
-              {profile.badge}
+    <section id="home" className="relative flex min-h-screen items-center pt-24 pb-12">
+      <div className="mx-auto w-full max-w-6xl px-6">
+        {/* Badge */}
+        <motion.div initial="hidden" animate="show" custom={0} variants={fadeUp} className="mb-5">
+          <span className="section-eyebrow">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400/70" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
             </span>
-          </motion.div>
+            {profile.badge}
+          </span>
+        </motion.div>
 
-          <motion.h1
+        {/* Big name */}
+        <motion.div
+          initial="hidden"
+          animate="show"
+          custom={0.08}
+          variants={fadeUp}
+          className="mb-4 leading-none"
+        >
+          <h1 className="font-display font-extrabold tracking-tight">
+            <span className="block text-[clamp(4rem,12vw,9rem)] text-white leading-[0.95]">
+              {profile.name.split(" ")[0]}
+            </span>
+            <span className="block text-[clamp(4rem,12vw,9rem)] text-gradient leading-[0.95]">
+              {profile.name.split(" ")[1]}
+            </span>
+          </h1>
+        </motion.div>
+
+        {/* Divider line */}
+        <motion.div
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={{ scaleX: 1, opacity: 1 }}
+          transition={{ delay: 0.22, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-5 h-px w-full max-w-lg origin-left bg-gradient-to-r from-brand-purple/60 via-brand-indigo/40 to-transparent"
+        />
+
+        {/* Role heading + description + CTAs + socials */}
+        <div className="max-w-xl">
+          <motion.h2
             initial="hidden"
             animate="show"
-            custom={0.1}
+            custom={0.28}
             variants={fadeUp}
-            className="font-display text-5xl font-extrabold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl"
+            className="font-display text-3xl font-extrabold leading-tight tracking-tight md:text-4xl lg:text-5xl"
           >
             <span className="text-white">Full Stack </span>
             <span className="text-gradient">Developer</span>
             <br />
-            <span className="text-white">& AI Builder</span>
-          </motion.h1>
+            <span className="text-white">&amp; AI Builder</span>
+          </motion.h2>
 
           <motion.p
             initial="hidden"
             animate="show"
-            custom={0.25}
+            custom={0.38}
             variants={fadeUp}
-            className="mt-6 max-w-xl text-base text-slate-300 md:text-lg"
+            className="mt-4 text-sm text-slate-300 md:text-base"
           >
             {profile.tagline}
           </motion.p>
@@ -77,9 +102,9 @@ function Hero() {
           <motion.div
             initial="hidden"
             animate="show"
-            custom={0.4}
+            custom={0.46}
             variants={fadeUp}
-            className="mt-8 flex flex-wrap gap-3"
+            className="mt-6 flex flex-wrap gap-3"
           >
             <a href="#projects" className="btn-primary">
               View Work <ArrowRight className="h-4 w-4" />
@@ -92,9 +117,9 @@ function Hero() {
           <motion.div
             initial="hidden"
             animate="show"
-            custom={0.55}
+            custom={0.54}
             variants={fadeUp}
-            className="mt-8 flex items-center gap-3"
+            className="mt-5 flex items-center gap-3"
           >
             {socialIcons.map(({ name, href, Icon, label }) => (
               <a
@@ -110,44 +135,28 @@ function Hero() {
               </a>
             ))}
           </motion.div>
-
-          <motion.div
-            initial="hidden"
-            animate="show"
-            custom={0.7}
-            variants={fadeUp}
-            className="mt-10 grid grid-cols-3 gap-3 text-xs uppercase tracking-[0.2em] text-slate-400"
-          >
-            <div className="glass rounded-2xl p-3 text-center">
-              <Sparkles className="mx-auto mb-1 h-4 w-4 text-brand-purple" />
-              <p>MERN Stack</p>
-            </div>
-            <div className="glass rounded-2xl p-3 text-center">
-              <Sparkles className="mx-auto mb-1 h-4 w-4 text-brand-cyan" />
-              <p>AI & Vision</p>
-            </div>
-            <div className="glass rounded-2xl p-3 text-center">
-              <Sparkles className="mx-auto mb-1 h-4 w-4 text-brand-indigo" />
-              <p>Java · Python</p>
-            </div>
-          </motion.div>
         </div>
 
+        {/* Skill chips */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.85 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="relative h-[420px] w-full md:h-[520px]"
+          initial="hidden"
+          animate="show"
+          custom={0.62}
+          variants={fadeUp}
+          className="mt-8 grid grid-cols-3 gap-3 text-xs uppercase tracking-[0.2em] text-slate-400 max-w-sm"
         >
-          <div className="pointer-events-none absolute inset-0 rounded-[40px] bg-grad-soft blur-3xl" />
-          <div className="absolute inset-0 rounded-[40px] border border-white/10" />
-          <Suspense
-            fallback={
-              <div className="grid h-full w-full place-items-center text-slate-400">Loading scene…</div>
-            }
-          >
-            <HeroScene />
-          </Suspense>
+          <div className="glass rounded-2xl p-3 text-center">
+            <Sparkles className="mx-auto mb-1 h-4 w-4 text-brand-purple" />
+            <p>MERN Stack</p>
+          </div>
+          <div className="glass rounded-2xl p-3 text-center">
+            <Sparkles className="mx-auto mb-1 h-4 w-4 text-brand-cyan" />
+            <p>AI &amp; Vision</p>
+          </div>
+          <div className="glass rounded-2xl p-3 text-center">
+            <Sparkles className="mx-auto mb-1 h-4 w-4 text-brand-indigo" />
+            <p>Java · Python</p>
+          </div>
         </motion.div>
       </div>
     </section>
