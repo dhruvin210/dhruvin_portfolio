@@ -1,220 +1,292 @@
 export const profile = {
   name: "Dhruvin Malot",
-  role: "Full Stack Developer | AI Engineer",
-  tagline:
-    "Full Stack Developer (MERN · TypeScript · REST APIs) with 3 production internships — shipping Node.js/Express backends, optimising MySQL schemas, and integrating AI into platforms serving real users.",
-  heading: "Full Stack Developer & AI Builder",
-  badge: "Open to internships and full-time roles",
+  role: "Full Stack Developer",
+  headline: "Full Stack Developer building modern web applications, scalable APIs, e-commerce platforms, and AI-powered products.",
+  currentRole: "Trainee – Web/App Development",
+  currentCompany: "NextDynamix Tech Pvt. Ltd.",
+  badge: "Available for Full Stack Opportunities",
   email: "dhruvinmalot.official21@gmail.com",
   phone: "+91 9166282927",
   location: "Pune, India",
   resumePath: `${import.meta.env.BASE_URL}Dhruvin_Malot_Resume.pdf`,
   university: "MIT World Peace University",
   degree: "B.Tech in Computer Engineering",
-  educationRange: "2022 – May 2026 (expected)",
+  educationRange: "MIT World Peace University · Pune, India",
   socials: {
-    linkedin: "https://www.linkedin.com/in/dhruvin-malot-00a5002b1",
+    linkedin: "https://www.linkedin.com/in/dhruvin-malot",
     github: "https://github.com/dhruvin210",
-    aurevia: "https://aurevia-x.vercel.app/"
+    email: "mailto:dhruvinmalot.official21@gmail.com",
+    aureviaLive: "https://aurevia-x.vercel.app/"
   }
 };
 
 export const navItems = [
-  { id: "home",       label: "Home" },
-  { id: "about",      label: "About" },
-  { id: "skills",     label: "Skills" },
-  { id: "projects",   label: "Projects" },
+  { id: "what-i-build", label: "Builds" },
   { id: "experience", label: "Experience" },
-  { id: "education",  label: "Education" },
-  { id: "contact",    label: "Contact" }
+  { id: "projects", label: "Projects" },
+  { id: "stack-dna", label: "Stack" },
+  { id: "education", label: "Education" },
+  { id: "contact", label: "Contact" }
 ];
 
-export const stats = [
-  { value: "3",   label: "Production Internships" },
-  { value: "40%", label: "Faster API Retrieval" },
-  { value: "94%", label: "AI Recognition Accuracy" }
+export const heroBadges = [
+  "TypeScript",
+  "React / Next.js",
+  "Node.js / Express",
+  "PostgreSQL / MySQL",
+  "Prisma ORM",
+  "Docker",
+  "AI Integration"
 ];
 
-export const featureCards = [
+export const aboutHighlights = [
   {
-    title: "Full Stack",
-    description: "Production MERN apps with secure APIs, scalable schemas, and clean architecture.",
-    accent: "from-fuchsia-500/20 to-purple-500/10"
+    title: "Frontend Engineering",
+    category: "01 — Frontend",
+    description: "Building responsive, accessible web interfaces using React, Next.js, TypeScript, and modern component systems with sub-200ms real-time feedback loops."
   },
   {
-    title: "AI & Vision",
-    description: "Computer vision, AI-integrated platforms, and modular pipelines for real users.",
-    accent: "from-indigo-500/20 to-cyan-500/10"
+    title: "Backend & Scalable APIs",
+    category: "02 — Backend",
+    description: "Architecting RESTful endpoints, service layers, JWT authentication, and RBAC with Node.js, Express, and FastAPI."
   },
   {
-    title: "System Design",
-    description: "Scalable system thinking, REST APIs, and relational schemas tuned for performance.",
-    accent: "from-cyan-500/20 to-emerald-500/10"
+    title: "Data & Schema Architecture",
+    category: "03 — Databases",
+    description: "Relational database design, query optimization, indexing strategies, and ORM modeling with PostgreSQL, MySQL, MongoDB, and Prisma."
+  },
+  {
+    title: "E-Commerce & Headless Platforms",
+    category: "04 — Platforms",
+    description: "Developing custom e-commerce workflows and headless content architecture using Medusa.js, Strapi CMS, and third-party integrations."
+  },
+  {
+    title: "DevOps & Workflows",
+    category: "05 — Workflows",
+    description: "Containerization with Docker, CI/CD automated workflows with GitHub Actions, Linux administration, and Agile sprint collaboration."
+  },
+  {
+    title: "AI Integration & Computer Vision",
+    category: "06 — AI & Vision",
+    description: "Integrating ML models, external research APIs, symptom analysis, and deep-learning facial embeddings with OpenCV."
   }
 ];
 
-export const skills = {
-  Languages: ["Java", "Python", "C/C++", "JavaScript", "TypeScript", "HTML", "CSS"],
-  "Frameworks & Libraries": ["React.js", "Redux", "Node.js", "Express.js", "jQuery", "Tailwind CSS", "OpenCV"],
-  Databases: ["MySQL", "MongoDB"],
-  "Tools & Practices": ["Git", "REST APIs", "Docker (basic)", "Agile/Scrum", "System Design", "UX Design", "AI & Machine Learning", "Computer Vision"]
-};
-
-export const projects = [
+export const skillCategories = [
   {
-    slug: "aurevia",
-    title: "Aurevia – AI Medical Research Copilot",
-    category: "AI / Healthcare",
-    description:
-      "Production MERN platform aggregating 10,000+ PubMed, OpenAlex, and ClinicalTrials.gov entries into a real-time clinical evidence engine — cutting manual research lookup time by 60%.",
-    image: "resume",
-    featured: true,
-    tags: ["MERN", "TypeScript", "REST APIs", "AI", "PubMed", "OpenAlex"],
-    link: "https://aurevia-x.vercel.app/",
-    github: "https://github.com/dhruvin210"
+    id: "01",
+    name: "Languages",
+    skills: ["Java", "Python", "C/C++", "JavaScript", "TypeScript", "HTML", "CSS"]
   },
   {
-    slug: "nexawell",
-    title: "NexaWell – AI Digital Health Platform",
-    category: "AI / Healthcare",
-    description:
-      "Multi-role healthcare platform (patient · doctor · admin) with appointment scheduling, EHR management, real-time chat, and an AI symptom checker improving self-diagnosis accuracy by 40%.",
-    image: "loyalty",
-    tags: ["MERN", "Tailwind CSS", "AI", "RBAC"],
-    link: "#",
-    github: "https://github.com/dhruvin210"
+    id: "02",
+    name: "Frontend",
+    skills: ["React.js", "Next.js", "Redux", "Tailwind CSS", "jQuery"]
   },
   {
-    slug: "celebrity-face-recognition",
-    title: "Celebrity Face Recognition System",
-    category: "Computer Vision / AI",
-    description:
-      "~94% recognition accuracy across 50+ subjects using deep-learning facial embeddings with OpenCV; 30% faster inference via batch preprocessing.",
-    image: "chat",
-    tags: ["Python", "OpenCV", "Deep Learning", "face_recognition"],
-    link: "#",
-    github: "https://github.com/dhruvin210"
+    id: "03",
+    name: "Backend",
+    skills: ["Node.js", "Express.js", "FastAPI", "REST APIs"]
   },
   {
-    slug: "company-website",
-    title: "Full Stack Company Website",
-    category: "Web Platform",
-    description:
-      "Production-grade company website with admin panel, product catalogue, and customer inquiry management secured via JWT auth — reducing admin overhead by 25%.",
-    image: "royalty",
-    tags: ["MERN", "JWT", "REST APIs", "Admin Panel"],
-    link: "#",
-    github: "https://github.com/dhruvin210"
+    id: "04",
+    name: "Databases",
+    skills: ["MySQL", "PostgreSQL", "MongoDB", "Prisma"]
   },
   {
-    slug: "appointment-booking",
-    title: "Appointment Booking System",
-    category: "Backend / APIs",
-    description:
-      "Backend services handling 500+ concurrent booking records, 35% faster queries via MySQL schema redesign, and zero QA vulnerabilities after input-validation hardening.",
-    image: "sms",
-    tags: ["Node.js", "Express.js", "MySQL", "jQuery"],
-    link: "#",
-    github: "https://github.com/dhruvin210"
+    id: "05",
+    name: "CMS / Commerce",
+    skills: ["Strapi", "Medusa.js"]
   },
   {
-    slug: "portfolio-website",
-    title: "Portfolio Website",
-    category: "Personal Brand",
-    description:
-      "This futuristic portfolio with Three.js particle background, glassmorphism, neon gradients, and Framer Motion animations.",
-    image: "portfolio",
-    tags: ["React", "Three.js", "Framer Motion", "Tailwind"],
-    link: "#",
-    github: "https://github.com/dhruvin210"
-  }
-];
-
-export const services = [
-  {
-    title: "Full Stack Development",
-    icon: "dev",
-    accent: "from-indigo-500 to-cyan-500",
-    description: "Production MERN apps with secure auth, REST APIs, and clean architecture.",
-    skills: ["React.js", "Node.js", "Express.js", "MongoDB", "MySQL", "JWT Auth"]
+    id: "06",
+    name: "Tools / DevOps",
+    skills: ["Git", "GitHub", "Docker", "GitHub Actions", "Linux"]
   },
   {
-    title: "AI & Computer Vision",
-    icon: "ai",
-    accent: "from-cyan-500 to-emerald-500",
-    description: "AI-integrated platforms, real-time vision systems, and modular ML pipelines.",
-    skills: ["OpenCV", "Deep Learning", "AI Integrations", "Face Recognition", "Health AI"]
-  },
-  {
-    title: "UI / UX & System Design",
-    icon: "design",
-    accent: "from-fuchsia-500 to-purple-500",
-    description: "Responsive interfaces and scalable system architecture for real products.",
-    skills: ["Responsive UI", "Tailwind CSS", "TypeScript", "Redux", "REST Design", "Schema Design"]
+    id: "07",
+    name: "AI / Computer Vision",
+    skills: ["AI/ML", "OpenCV", "Computer Vision"]
   }
 ];
 
 export const experiences = [
   {
+    company: "NextDynamix Tech Pvt. Ltd.",
+    role: "Trainee – Web/App Development",
+    period: "Jun 2026 – Present",
+    tag: "Paid Training Program",
+    summary:
+      "Developing and maintaining full-stack web applications using TypeScript, React/Next.js, Node.js, Express.js, FastAPI, and REST APIs across production-oriented projects.",
+    bullets: [
+      "Contributing to the development of the KUDLZ pet-commerce platform across storefront, backend APIs, Medusa, Strapi CMS, authentication, product catalogue, payments, and third-party integrations.",
+      "Implementing scalable backend features using TypeScript, Prisma, SQL, JWT authentication, RBAC, API validation, and reusable service architecture.",
+      "Working with Docker, Git/GitHub, GitHub Actions, Linux, PostgreSQL/MySQL, and modern frontend component libraries to support development and deployment workflows.",
+      "Collaborating with senior developers, QA, and cross-functional teams to debug issues, perform UAT, review existing code, and deliver production-ready features."
+    ],
+    tech: [
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Node.js",
+      "Express.js",
+      "FastAPI",
+      "REST APIs",
+      "Prisma",
+      "SQL",
+      "Medusa.js",
+      "Strapi",
+      "Docker",
+      "GitHub Actions"
+    ]
+  },
+  {
     company: "Intersect Creative",
     role: "Web Developer Intern (Contract)",
-    duration: "Jul 2025 – Dec 2025",
-    initials: "IC",
+    period: "Jul 2025 – Dec 2025",
+    tag: "Fixed-term",
+    summary:
+      "Engineered backend validation, optimized relational database query throughput, and delivered responsive user interfaces for appointment workflows.",
     bullets: [
       "Reduced booking-system error rate to zero during QA by architecting input-validation and security-hardening layers across a Node.js / Express.js backend handling 500+ concurrent booking records.",
       "Improved database query throughput by 35% by redesigning relational MySQL schemas and indexing strategies, cutting average response time for high-traffic booking lookups.",
       "Shipped a responsive, accessible front-end with sub-200ms real-time UI feedback using JavaScript and jQuery, reducing user-reported friction in the appointment scheduling flow.",
       "Contributed to Agile sprint planning and daily stand-ups, aligning backend delivery milestones with cross-functional design and QA teams."
     ],
-    tags: ["Node.js", "Express.js", "MySQL", "jQuery", "Agile"]
+    tech: ["Node.js", "Express.js", "MySQL", "JavaScript", "jQuery", "Agile/Scrum"]
   },
   {
     company: "STL Digital Limited",
     role: "IT & Technology Intern (Contract)",
-    duration: "Feb 2025 – Jun 2025",
-    initials: "STL",
+    period: "Feb 2025 – Jun 2025",
+    tag: "Fixed-term",
+    summary:
+      "Analyzed IT delivery pipeline bottlenecks and translated system analysis findings into structured technical recommendations for leadership.",
     bullets: [
       "Accelerated project delivery workflows by mapping end-to-end IT pipeline bottlenecks and presenting a prioritised remediation plan to senior leadership, adopted across 2 active sprint cycles.",
       "Authored structured technical reports for C-suite stakeholders, translating system-analysis findings into actionable delivery recommendations — maintaining zero misalignment between engineering output and strategic OKRs.",
       "Supported real-time technology service operations across live infrastructure projects, collaborating with the Technology Services team to keep sprint velocity on track."
     ],
-    tags: ["System Analysis", "IT Operations", "Technical Reporting", "Strategy"]
+    tech: ["System Analysis", "IT Operations", "Technical Documentation", "Workflow Optimization"]
   },
   {
     company: "Netsol IT Solutions Pvt. Ltd.",
     role: "Web Developer Intern (Contract)",
-    duration: "Jun 2024 – Jan 2025",
-    initials: "NS",
+    period: "Jun 2024 – Jan 2025",
+    tag: "Fixed-term",
+    summary:
+      "Architected RESTful endpoints, optimized relational indexing, and hardened authentication and administrative modules.",
     bullets: [
       "Cut API response latency by 40% by architecting RESTful endpoints with Node.js / Express.js and redesigning the MySQL schema with optimised indexing — directly improving data retrieval speed for the appointment booking module.",
       "Hardened both admin and client modules against injection and auth vulnerabilities, reducing post-launch security issues to zero across the full deployment.",
       "Shipped dynamic, responsive UIs with sub-200ms real-time feedback loops using JavaScript and jQuery, improving end-user task-completion rates across the platform."
     ],
-    tags: ["Node.js", "Express.js", "REST APIs", "MySQL", "Security"]
+    tech: ["Node.js", "Express.js", "REST APIs", "MySQL", "JavaScript", "Security Hardening"]
   }
 ];
 
+export const featuredProject = {
+  slug: "aurevia",
+  title: "Aurevia",
+  subtitle: "AI Medical Research Copilot",
+  category: "Featured Full Stack & AI Platform",
+  summary:
+    "Engineered a production MERN platform that aggregates 10,000+ PubMed, OpenAlex, and ClinicalTrials.gov entries into a real-time clinical evidence engine — cutting estimated manual research lookup time by 60% for target users.",
+  stack: ["MERN Stack", "TypeScript", "REST APIs", "AI", "Node.js", "Express.js", "React"],
+  liveUrl: "https://aurevia-x.vercel.app/",
+  githubUrl: "https://github.com/dhruvin210",
+  highlights: [
+    "Aggregates 10,000+ clinical entries from PubMed, OpenAlex, and ClinicalTrials.gov",
+    "Modular Node.js/Express backend pipeline with integrated session memory and authentication",
+    "Responsive React dashboards supporting what-if clinical scenario analysis",
+    "Cuts estimated manual research lookup time by 60% for target researchers"
+  ],
+  metrics: [
+    { label: "Research Entries Indexed", value: "10,000+" },
+    { label: "External Research APIs", value: "3" },
+    { label: "Manual Lookup Time Reduction", value: "60%" }
+  ]
+};
+
+export const secondaryProjects = [
+  {
+    slug: "nexawell",
+    title: "NexaWell",
+    subtitle: "AI Digital Health Platform",
+    category: "Full Stack Healthcare",
+    description:
+      "Architected a multi-role healthcare platform (patient · doctor · admin) serving appointment scheduling, EHR management, and real-time chat — integrated an AI symptom checker that improved self-diagnosis accuracy by 40%.",
+    stack: ["MERN Stack", "Tailwind CSS", "AI", "RBAC", "Node.js", "React"],
+    bullets: [
+      "Multi-role architecture with secure role-based access control (patient, doctor, admin)",
+      "Integrated appointment scheduling, electronic health records (EHR), and real-time chat",
+      "Embedded AI-powered food detection and health assistant chatbot extending clinical utility into preventive care"
+    ],
+    githubUrl: "https://github.com/dhruvin210",
+    liveUrl: null
+  },
+  {
+    slug: "company-website",
+    title: "Full Stack Company Website",
+    subtitle: "Production Web Platform & Admin Panel",
+    category: "Web Platform & Management",
+    description:
+      "Delivered a production-grade company website with admin panel, product catalogue, and customer inquiry management — secured via JWT-based authentication, reducing admin overhead by 25%.",
+    stack: ["MERN Stack", "REST APIs", "JWT Auth", "Express.js", "React"],
+    bullets: [
+      "Production-grade administration dashboard with complete product catalogue CRUD workflows",
+      "Secured administrative and client endpoints via JWT authentication",
+      "Customer inquiry management system reducing operational admin overhead by 25%"
+    ],
+    githubUrl: "https://github.com/dhruvin210",
+    liveUrl: null
+  },
+  {
+    slug: "celebrity-face-recognition",
+    title: "Celebrity Face Recognition System",
+    subtitle: "Computer Vision & Deep Learning Pipeline",
+    category: "Computer Vision / AI",
+    description:
+      "Achieved ~94% recognition accuracy across 50+ subjects by training deep-learning facial embeddings with OpenCV, with live webcam integration, bounding-box overlay, and name annotation.",
+    stack: ["Python", "OpenCV", "Deep Learning", "Facial Embeddings"],
+    bullets: [
+      "Trained deep-learning facial embeddings achieving ~94% recognition accuracy across 50+ subjects",
+      "Real-time webcam pipeline with bounding-box overlay and dynamic name annotation",
+      "Reduced average inference latency by 30% through batch preprocessing of the encoding pipeline"
+    ],
+    githubUrl: "https://github.com/dhruvin210",
+    liveUrl: null
+  }
+];
+
+export const allProjects = [featuredProject, ...secondaryProjects];
+
+export const education = {
+  institution: "MIT World Peace University",
+  location: "Pune, India",
+  degree: "B.Tech in Computer Engineering",
+  description:
+    "Rigorous curriculum in computer engineering covering algorithms, data structures, system design, operating systems, database management, computer vision, and modern full-stack application development."
+};
+
 export const certifications = [
   {
-    title: "Walmart USA – Advanced Software Engineering",
+    title: "Walmart Advanced Software Engineering",
     issuer: "Forage",
-    summary:
-      "Designed system architecture and UML/ERD diagrams for a scalable data-processing pipeline; built a custom heap data structure in Java.",
-    link: "https://www.theforage.com/"
+    description:
+      "Designed system architecture and UML/ERD diagrams for a scalable data-processing pipeline; developed a custom heap data structure in Java."
   },
   {
-    title: "Skyscanner – Front-End Software Engineering",
+    title: "Skyscanner Front-End Engineering",
     issuer: "Forage",
-    summary:
-      "Built and validated a front-end date-selection component against automated test suites using Skyscanner's Backpack React library.",
-    link: "https://www.theforage.com/"
+    description:
+      "Built and validated a front-end date-selection component against automated test suites using Skyscanner's Backpack React library."
   },
   {
-    title: "Deloitte Australia – Technology Job Simulation",
+    title: "Deloitte Technology Simulation",
     issuer: "Forage",
-    summary:
-      "Proposed design and architecture for an interactive business dashboard; completed a software development simulation for C-suite deliverables.",
-    link: "https://www.theforage.com/"
+    description:
+      "Proposed design and architecture for an interactive business dashboard and completed a software development simulation for C-suite deliverables."
   }
 ];
 
@@ -222,146 +294,101 @@ export const caseStudies = {
   aurevia: {
     slug: "aurevia",
     title: "Aurevia",
-    subtitle: "AI medical research copilot for evidence-based clinical insight",
+    subtitle: "AI Medical Research Copilot for Evidence-Based Clinical Insight",
     liveUrl: "https://aurevia-x.vercel.app/",
+    githubUrl: "https://github.com/dhruvin210",
     overview:
-      "Aurevia is a production MERN platform that aggregates 10,000+ PubMed, OpenAlex, and ClinicalTrials.gov entries into a real-time clinical evidence engine — cutting estimated manual research lookup time by 60% for target users. Live at https://aurevia-x.vercel.app/.",
+      "Aurevia is a production MERN platform that aggregates 10,000+ PubMed, OpenAlex, and ClinicalTrials.gov entries into a real-time clinical evidence engine — cutting estimated manual research lookup time by 60% for target users.",
     challenge:
-      "Researchers were drowning in fragmented sources. PubMed, OpenAlex, and ClinicalTrials.gov each told a partial story, and synthesizing them into actionable insight required hours of manual review.",
+      "Medical researchers and clinical practitioners spend hours manually cross-referencing fragmented data across disparate clinical repositories like PubMed, OpenAlex, and ClinicalTrials.gov.",
     solution:
-      "I engineered a modular Node.js/Express backend pipeline that ingests and ranks data from all three sources, paired with a responsive React dashboard featuring authentication, session memory, and what-if scenario analysis.",
+      "Engineered an aggregated ingestion pipeline and modular Node.js/Express service architecture with session memory, protected workspaces, and responsive React dashboards supporting what-if clinical scenario analysis.",
     features: [
-      "Cross-source evidence ranking across PubMed, OpenAlex, and ClinicalTrials.gov",
-      "Session memory that preserves ongoing research reasoning",
-      "What-if scenario analysis for treatment risk and outcomes",
-      "Authentication and protected research workspaces",
-      "Clean React dashboard tuned for fast iteration"
+      "Real-time clinical evidence engine indexing 10,000+ research entries",
+      "Multi-source aggregation across PubMed, OpenAlex, and ClinicalTrials.gov",
+      "Modular Node.js / Express backend with session memory and token-based authentication",
+      "Interactive React dashboard with what-if clinical scenario analysis"
     ],
-    stack: ["MongoDB", "Express.js", "React", "Node.js", "TypeScript", "REST APIs", "PubMed API"],
+    stack: ["MERN Stack", "TypeScript", "REST APIs", "Node.js", "Express.js", "React", "PubMed API"],
     results: [
-      { value: "10K+", label: "PubMed entries indexed" },
-      { value: "3",    label: "Research APIs integrated" },
-      { value: "-60%", label: "Manual research lookup time" }
+      { value: "10,000+", label: "Research Entries Indexed" },
+      { value: "3", label: "External Clinical APIs" },
+      { value: "60%", label: "Lookup Time Saved" }
     ]
   },
   nexawell: {
     slug: "nexawell",
     title: "NexaWell",
-    subtitle: "An AI-powered digital health platform for patients, doctors, and admins",
+    subtitle: "AI-Powered Digital Health Platform",
+    liveUrl: null,
+    githubUrl: "https://github.com/dhruvin210",
     overview:
-      "NexaWell is a full-featured healthcare platform with role-based dashboards, appointment scheduling, EHR management, and real-time chat across three user roles — patient, doctor, and admin.",
+      "NexaWell is a multi-role healthcare platform built on the MERN stack with role-based access control for patients, doctors, and administrators, incorporating clinical scheduling and AI assistance.",
     challenge:
-      "Patients lacked an intuitive way to self-assess symptoms, and clinic operations were fragmented across booking, records, and communication tools.",
+      "Fragmented communication between patients and clinical staff creates scheduling overhead and delays preliminary triage.",
     solution:
-      "I built a unified MERN platform combining RBAC, real-time messaging, and AI features — a symptom checker, food detection, and a health assistant chatbot — all within one polished UI.",
+      "Architected a centralized platform pairing appointment scheduling, electronic health records (EHR), and real-time chat with an AI symptom checker improving self-diagnosis accuracy by 40%.",
     features: [
-      "Role-based dashboards for patients, doctors, and admins",
-      "Appointment scheduling and medical records management",
-      "Real-time chat across all three roles",
-      "AI-powered symptom checker and food detection",
-      "Health assistant chatbot improving self-diagnosis accuracy by 40%"
+      "Role-based access control (RBAC) supporting patients, doctors, and administrators",
+      "Appointment scheduling and electronic health records (EHR) management",
+      "Real-time chat communication channel across clinical roles",
+      "Integrated AI symptom checker, food detection, and health assistant chatbot"
     ],
-    stack: ["MongoDB", "Express.js", "React", "Node.js", "AI", "Tailwind CSS"],
+    stack: ["MERN Stack", "Tailwind CSS", "AI Integration", "Express.js", "React"],
     results: [
-      { value: "+40%", label: "Self-diagnosis accuracy" },
-      { value: "3",    label: "User roles supported" },
-      { value: "Real-time", label: "Chat across roles" }
-    ]
-  },
-  "celebrity-face-recognition": {
-    slug: "celebrity-face-recognition",
-    title: "Celebrity Face Recognition",
-    subtitle: "Real-time computer vision system identifying 50+ celebrity faces",
-    overview:
-      "A real-time face detection and recognition system capable of identifying 50+ celebrity faces with ~94% accuracy using OpenCV and deep learning-based facial embeddings.",
-    challenge:
-      "Recognition pipelines often trade accuracy for latency. The goal was to keep both: ~94% accuracy with smooth real-time webcam performance and clean visual feedback.",
-    solution:
-      "I built an embedding-based recognition pipeline with batch preprocessing, paired with live webcam integration that overlays bounding boxes and name annotations.",
-    features: [
-      "Real-time webcam integration with bounding box overlays",
-      "Name annotation for recognized subjects",
-      "Embedding-based deep learning recognition model",
-      "Batch preprocessing reducing inference latency by 30%",
-      "Tunable threshold for precision-recall trade-offs"
-    ],
-    stack: ["Python", "OpenCV", "Deep Learning", "face_recognition"],
-    results: [
-      { value: "~94%", label: "Recognition accuracy" },
-      { value: "50+",  label: "Celebrities supported" },
-      { value: "-30%", label: "Inference latency" }
+      { value: "40%", label: "Improved Self-Diagnosis Accuracy" },
+      { value: "3", label: "Dedicated Role Workspaces" },
+      { value: "Real-time", label: "Clinical Messaging" }
     ]
   },
   "company-website": {
     slug: "company-website",
     title: "Full Stack Company Website",
-    subtitle: "Production-grade company site with admin panel and inquiries",
+    subtitle: "Production-Grade Web Platform with Administration Panel",
+    liveUrl: null,
+    githubUrl: "https://github.com/dhruvin210",
     overview:
-      "A production-grade company website with an admin panel, product catalogue, and customer inquiry management system, secured with JWT-based authentication.",
+      "Delivered a production-grade company website with an administrative panel, product catalogue, and customer inquiry management secured via JWT-based authentication.",
     challenge:
-      "The client needed a single platform to manage products and customer inquiries without spreadsheets, while keeping admin operations secure.",
+      "Operations required a reliable, secure portal to handle customer inquiries and dynamic product catalogues without relying on manual back-office tools.",
     solution:
-      "I shipped a MERN site with JWT auth, scalable product workflows, and an admin dashboard that reduced operational overhead by 25%.",
+      "Built a secure MERN web platform featuring role-authenticated REST endpoints, structured product management workflows, and an inquiry pipeline.",
     features: [
-      "Secure JWT-based authentication for admins",
-      "Product catalogue with full CRUD workflows",
-      "Customer inquiry management",
-      "Scalable REST API design",
-      "Responsive front-end with clean component structure"
+      "Full product catalogue management with administrative CRUD capabilities",
+      "Inquiry ingestion and tracking pipeline for customer requests",
+      "JWT-secured administrative authentication",
+      "Clean, responsive interface with sub-200ms interaction response"
     ],
-    stack: ["MongoDB", "Express.js", "React", "Node.js", "JWT", "REST APIs"],
+    stack: ["MERN Stack", "REST APIs", "JWT Authentication", "Node.js", "React"],
     results: [
-      { value: "-25%", label: "Admin overhead" },
-      { value: "100%", label: "JWT-secured routes" },
-      { value: "Scalable", label: "Product workflows" }
+      { value: "25%", label: "Reduction in Admin Overhead" },
+      { value: "100%", label: "Secured Admin Endpoints" },
+      { value: "CRUD", label: "Full Catalogue Control" }
     ]
   },
-  "appointment-booking": {
-    slug: "appointment-booking",
-    title: "Appointment Booking System",
-    subtitle: "Backend platform handling 500+ concurrent booking records",
+  "celebrity-face-recognition": {
+    slug: "celebrity-face-recognition",
+    title: "Celebrity Face Recognition System",
+    subtitle: "Real-Time Computer Vision Pipeline with Deep Facial Embeddings",
+    liveUrl: null,
+    githubUrl: "https://github.com/dhruvin210",
     overview:
-      "Backend services for an Appointment Booking System with REST APIs and a MySQL schema tuned for high concurrency and fast retrieval — built across two production internships.",
+      "Achieved ~94% recognition accuracy across 50+ subjects by training deep-learning facial embeddings with OpenCV, complete with live webcam integration and annotation.",
     challenge:
-      "The platform needed to handle hundreds of simultaneous bookings without query slowdowns or security gaps.",
+      "Balancing high accuracy with low inference latency during real-time video stream processing on resource-constrained hardware.",
     solution:
-      "I built REST APIs with Node.js and Express, redesigned the MySQL schema for 35% faster queries, and added input validation plus security hardening that brought vulnerabilities to zero.",
+      "Developed an optimized encoding pipeline using batch preprocessing to accelerate feature extraction, reducing average inference latency by 30%.",
     features: [
-      "REST APIs with Node.js and Express.js",
-      "MySQL schema redesigned for concurrent booking writes",
-      "Input validation and security hardening",
-      "Responsive UI with sub-200ms feedback using JavaScript and jQuery",
-      "QA-tested with zero reported vulnerabilities"
+      "Deep-learning facial embeddings trained on 50+ subjects",
+      "Live webcam integration with bounding-box overlays and name labels",
+      "Batch preprocessing optimization reducing inference latency by 30%",
+      "Adjustable thresholding for false-positive prevention"
     ],
-    stack: ["Node.js", "Express.js", "MySQL", "REST APIs", "jQuery"],
+    stack: ["Python", "OpenCV", "Deep Learning", "Facial Embeddings"],
     results: [
-      { value: "500+", label: "Concurrent records" },
-      { value: "+35%", label: "Faster queries" },
-      { value: "0",    label: "Reported vulnerabilities" }
-    ]
-  },
-  "portfolio-website": {
-    slug: "portfolio-website",
-    title: "Portfolio Website",
-    subtitle: "Futuristic portfolio with Three.js particle background and glassmorphism",
-    overview:
-      "This portfolio — a React + Vite app with a Three.js particle field background, Framer Motion animation, Tailwind CSS, and a glassmorphism design language.",
-    challenge:
-      "Build a portfolio that genuinely stands out: interactive 3D background, smooth animations, accessible, and fast across devices.",
-    solution:
-      "I built a futuristic UI with neon purple, indigo, and cyan gradients, a raw Three.js particle field, and a polished motion design system tuned for performance.",
-    features: [
-      "Three.js particle field background with mouse parallax",
-      "Glassmorphism cards with gradient borders and neon glow",
-      "Framer Motion scroll-reveal and section animations",
-      "Responsive, mobile-first layouts across all sections",
-      "Case study route for deep project storytelling"
-    ],
-    stack: ["React", "Vite", "Three.js", "Framer Motion", "Tailwind CSS"],
-    results: [
-      { value: "3000", label: "Animated particles" },
-      { value: "Smooth", label: "60fps animations" },
-      { value: "Responsive", label: "Across all devices" }
+      { value: "~94%", label: "Recognition Accuracy" },
+      { value: "50+", label: "Subjects Classified" },
+      { value: "30%", label: "Latency Reduction" }
     ]
   }
 };

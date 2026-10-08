@@ -1,58 +1,128 @@
-// SVG-based project artwork so cards look distinct without external images.
+// Light-themed parametric UI artwork representing application architecture
 const palettes = {
-  royalty: ["#8B5CF6", "#6366F1", "#06B6D4"],
-  loyalty: ["#EC4899", "#8B5CF6", "#6366F1"],
-  resume: ["#06B6D4", "#22D3EE", "#6366F1"],
-  sms: ["#6366F1", "#8B5CF6", "#22D3EE"],
-  chat: ["#22D3EE", "#06B6D4", "#8B5CF6"],
-  portfolio: ["#8B5CF6", "#EC4899", "#06B6D4"]
+  aurevia: {
+    bg: "#EFF6FF",
+    border: "#BFDBFE",
+    accent: "#2563EB",
+    subtle: "#93C5FD",
+    panel: "#FFFFFF"
+  },
+  nexawell: {
+    bg: "#F0FDF4",
+    border: "#BBF7D0",
+    accent: "#16A34A",
+    subtle: "#86EFAC",
+    panel: "#FFFFFF"
+  },
+  "company-website": {
+    bg: "#FAF5FF",
+    border: "#E9D5FF",
+    accent: "#7C3AED",
+    subtle: "#C084FC",
+    panel: "#FFFFFF"
+  },
+  "celebrity-face-recognition": {
+    bg: "#FFFBEB",
+    border: "#FDE68A",
+    accent: "#D97706",
+    subtle: "#FCD34D",
+    panel: "#FFFFFF"
+  }
 };
 
-function ProjectArt({ variant = "royalty", className = "" }) {
-  const colors = palettes[variant] ?? palettes.royalty;
+function ProjectArt({ variant = "aurevia", className = "" }) {
+  const p = palettes[variant] || palettes.aurevia;
+
   return (
-    <svg viewBox="0 0 400 240" className={className} preserveAspectRatio="xMidYMid slice">
+    <svg
+      viewBox="0 0 500 320"
+      className={className}
+      preserveAspectRatio="xMidYMid slice"
+      aria-hidden="true"
+    >
       <defs>
-        <linearGradient id={`bg-${variant}`} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor={colors[0]} stopOpacity="0.55" />
-          <stop offset="100%" stopColor={colors[2]} stopOpacity="0.25" />
-        </linearGradient>
-        <linearGradient id={`acc-${variant}`} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor={colors[1]} />
-          <stop offset="100%" stopColor={colors[2]} />
-        </linearGradient>
-        <radialGradient id={`glow-${variant}`} cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor={colors[0]} stopOpacity="0.7" />
-          <stop offset="100%" stopColor={colors[0]} stopOpacity="0" />
-        </radialGradient>
+        <pattern id={`grid-${variant}`} width="20" height="20" patternUnits="userSpaceOnUse">
+          <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(24,24,27,0.04)" strokeWidth="1" />
+        </pattern>
       </defs>
 
-      <rect width="400" height="240" fill="#0A0F1F" />
-      <rect width="400" height="240" fill={`url(#bg-${variant})`} />
-      <circle cx="80" cy="60" r="120" fill={`url(#glow-${variant})`} />
-      <circle cx="320" cy="200" r="120" fill={`url(#glow-${variant})`} />
+      {/* Frame canvas */}
+      <rect width="500" height="320" fill={p.bg} />
+      <rect width="500" height="320" fill={`url(#grid-${variant})`} />
 
-      {/* Window chrome */}
-      <rect x="30" y="40" width="340" height="160" rx="20" fill="rgba(5,8,22,0.75)" stroke="rgba(255,255,255,0.08)" />
-      <circle cx="50" cy="60" r="4" fill="#ef4444" />
-      <circle cx="64" cy="60" r="4" fill="#f59e0b" />
-      <circle cx="78" cy="60" r="4" fill="#10b981" />
+      {/* Main App Window */}
+      <rect
+        x="30"
+        y="25"
+        width="440"
+        height="270"
+        rx="14"
+        fill={p.panel}
+        stroke={p.border}
+        strokeWidth="1.5"
+      />
 
-      {/* Content blocks */}
-      <rect x="50" y="84" width="120" height="14" rx="7" fill={`url(#acc-${variant})`} />
-      <rect x="50" y="106" width="200" height="8" rx="4" fill="rgba(255,255,255,0.18)" />
-      <rect x="50" y="120" width="160" height="8" rx="4" fill="rgba(255,255,255,0.12)" />
+      {/* Window Controls */}
+      <circle cx="50" cy="45" r="4.5" fill="#EF4444" opacity="0.75" />
+      <circle cx="64" cy="45" r="4.5" fill="#F59E0B" opacity="0.75" />
+      <circle cx="78" cy="45" r="4.5" fill="#10B981" opacity="0.75" />
 
-      <rect x="50" y="146" width="90" height="40" rx="10" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.08)" />
-      <rect x="150" y="146" width="90" height="40" rx="10" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.08)" />
-      <rect x="250" y="146" width="100" height="40" rx="10" fill={`url(#acc-${variant})`} opacity="0.85" />
+      {/* Window Title Bar Mock */}
+      <rect x="100" y="40" width="120" height="10" rx="5" fill="rgba(24,24,27,0.08)" />
 
-      {/* Floating chip */}
-      <g transform="translate(280,80)">
-        <rect x="0" y="0" width="80" height="44" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)" />
-        <circle cx="14" cy="22" r="6" fill={colors[2]} />
-        <rect x="26" y="14" width="42" height="6" rx="3" fill="rgba(255,255,255,0.5)" />
-        <rect x="26" y="24" width="32" height="5" rx="2" fill="rgba(255,255,255,0.25)" />
+      {/* App Sidebar */}
+      <rect x="45" y="65" width="80" height="215" rx="8" fill="rgba(24,24,27,0.02)" />
+      <rect x="55" y="80" width="60" height="8" rx="4" fill={p.accent} opacity="0.3" />
+      <rect x="55" y="100" width="50" height="6" rx="3" fill="rgba(24,24,27,0.12)" />
+      <rect x="55" y="116" width="45" height="6" rx="3" fill="rgba(24,24,27,0.12)" />
+      <rect x="55" y="132" width="55" height="6" rx="3" fill="rgba(24,24,27,0.12)" />
+
+      {/* Main Content Area */}
+      {/* Top metric tiles */}
+      <g transform="translate(140, 65)">
+        <rect x="0" y="0" width="95" height="52" rx="8" fill="white" stroke={p.border} strokeWidth="1" />
+        <rect x="12" y="12" width="45" height="6" rx="3" fill="rgba(24,24,27,0.15)" />
+        <rect x="12" y="26" width="30" height="12" rx="4" fill={p.accent} />
+
+        <rect x="105" y="0" width="95" height="52" rx="8" fill="white" stroke={p.border} strokeWidth="1" />
+        <rect x="117" y="12" width="50" height="6" rx="3" fill="rgba(24,24,27,0.15)" />
+        <rect x="117" y="26" width="35" height="12" rx="4" fill={p.subtle} />
+
+        <rect x="210" y="0" width="105" height="52" rx="8" fill="white" stroke={p.border} strokeWidth="1" />
+        <rect x="222" y="12" width="40" height="6" rx="3" fill="rgba(24,24,27,0.15)" />
+        <rect x="222" y="26" width="48" height="12" rx="4" fill={p.accent} opacity="0.8" />
+      </g>
+
+      {/* Center Data Chart / Workflow */}
+      <g transform="translate(140, 130)">
+        <rect x="0" y="0" width="315" height="90" rx="8" fill="white" stroke={p.border} strokeWidth="1" />
+        <rect x="15" y="15" width="80" height="8" rx="4" fill="rgba(24,24,27,0.18)" />
+
+        {/* Dynamic bar charts */}
+        <rect x="15" y="55" width="18" height="24" rx="3" fill={p.accent} opacity="0.8" />
+        <rect x="42" y="42" width="18" height="37" rx="3" fill={p.accent} />
+        <rect x="69" y="48" width="18" height="31" rx="3" fill={p.subtle} />
+        <rect x="96" y="35" width="18" height="44" rx="3" fill={p.accent} />
+        <rect x="123" y="50" width="18" height="29" rx="3" fill={p.subtle} />
+        <rect x="150" y="30" width="18" height="49" rx="3" fill={p.accent} />
+
+        {/* Line indicator */}
+        <path
+          d="M 185 65 Q 220 30, 260 48 T 300 25"
+          fill="none"
+          stroke={p.accent}
+          strokeWidth="2.5"
+          strokeLinecap="round"
+        />
+        <circle cx="300" cy="25" r="4" fill={p.accent} />
+      </g>
+
+      {/* Bottom status line */}
+      <g transform="translate(140, 232)">
+        <rect x="0" y="0" width="315" height="48" rx="8" fill="white" stroke={p.border} strokeWidth="1" />
+        <circle cx="20" cy="24" r="5" fill="#10B981" />
+        <rect x="35" y="20" width="110" height="8" rx="4" fill="rgba(24,24,27,0.18)" />
+        <rect x="235" y="16" width="65" height="16" rx="8" fill={p.bg} stroke={p.border} strokeWidth="1" />
       </g>
     </svg>
   );

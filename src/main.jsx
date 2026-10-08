@@ -23,11 +23,11 @@ class AppErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div className="grid min-h-screen place-items-center bg-ink-950 p-6">
-          <div className="glass max-w-md rounded-3xl p-8 text-center">
-            <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Portfolio startup issue</p>
-            <h1 className="mt-3 font-display text-2xl font-semibold">Something interrupted the page load.</h1>
-            <p className="mt-3 text-sm text-slate-300">{this.state.message}</p>
+        <div className="grid min-h-screen place-items-center bg-[#FAFAF7] p-6 text-zinc-900">
+          <div className="card-light max-w-md text-center p-8">
+            <p className="text-xs uppercase tracking-[0.2em] text-zinc-400">Portfolio startup issue</p>
+            <h1 className="mt-3 font-display text-2xl font-bold text-zinc-900">Something interrupted the page load.</h1>
+            <p className="mt-3 text-sm text-zinc-600">{this.state.message}</p>
             <button
               type="button"
               onClick={() => window.location.reload()}

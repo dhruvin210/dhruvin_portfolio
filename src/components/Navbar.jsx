@@ -1,135 +1,157 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Download } from "lucide-react";
-import { navItems, profile } from "../data/portfolio";
+import { Menu, X, ArrowUpRight, Sparkles } from "lucide-react";
+import { profile } from "../data/portfolio";
+
+const navigationWorlds = [
+  { id: "world-builds", target: "what-i-build", label: "Builds", color: "hover:text-cobalt" },
+  { id: "world-exp", target: "experience", label: "Experience", color: "hover:text-orangeTech" },
+  { id: "world-projects", target: "projects", label: "Projects", color: "hover:text-cobalt" },
+  { id: "world-stack", target: "stack-dna", label: "Stack", color: "hover:text-deepNavy" },
+  { id: "world-process", target: "how-i-build", label: "Method", color: "hover:text-coral" },
+  { id: "world-about", target: "education", label: "Education", color: "hover:text-electricBlue" }
+];
 
 function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [active, setActive] = useState("home");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 25);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    const sections = navItems.map((item) => document.getElementById(item.id)).filter(Boolean);
-    if (sections.length === 0) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        if (visible[0]) setActive(visible[0].target.id);
-      },
-      { threshold: [0.25, 0.5, 0.75], rootMargin: "-15% 0px -35% 0px" }
-    );
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
-  }, []);
-
-  const goTo = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  const scrollTo = (targetId) => {
+    const el = document.getElementById(targetId);
+    if (el) {
+      const yOffset = -80;
+      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
     setOpen(false);
   };
 
   return (
-    <motion.header
-      initial={{ y: -40, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      className={`fixed inset-x-0 top-4 z-50 transition-all ${scrolled ? "top-2" : "top-4"}`}
-    >
-      <div className="mx-auto max-w-6xl px-4">
-        <div
-          className={`glass flex items-center justify-between rounded-full px-4 py-2.5 transition ${
-            scrolled ? "shadow-glow" : ""
-          }`}
+    <header className="fixed inset-x-0 top-3 z-50 px-4 sm:px-6">
+      <div
+        className={`mx-auto flex max-w-7xl items-center justify-between rounded-2xl border-2 border-deepNavy bg-ivory/95 px-4 py-2.5 backdrop-blur-md transition-all duration-300 sm:px-6 ${
+          scrolled ? "shadow-brutal" : "shadow-brutalSm"
+        }`}
+      >
+        {/* Brand identity */}
+        <button
+          onClick={() => scrollTo("")}
+          className="group flex items-center gap-2.5 text-left focus-visible:outline-none"
+          aria-label="Dhruvin Malot, back to top"
         >
-          <button onClick={() => goTo("home")} className="flex items-center gap-3">
-            <span className="grid h-9 w-9 place-items-center rounded-full bg-grad-brand font-display text-sm font-bold">
-              DM
+          <div className="grid h-8 w-8 place-items-center rounded-lg border-2 border-deepNavy bg-electricBlue font-display text-xs font-bold text-white shadow-brutalSm transition-transform group-hover:rotate-6">
+            DM
+          </div>
+          <div>
+            <span className="font-display text-sm font-extrabold uppercase tracking-tight text-deepNavy block leading-none">
+              DHRUVIN MALOT
             </span>
-            <div className="hidden text-left sm:block">
-              <p className="text-sm font-semibold leading-none">Dhruvin Malot</p>
-              <p className="text-[11px] uppercase tracking-[0.2em] text-slate-400">Full Stack · AI</p>
-            </div>
+            <span className="font-mono text-[10px] font-semibold text-electricBlue uppercase tracking-wider">
+              FULL STACK · SYSTEMS
+            </span>
+          </div>
+        </button>
+
+        {/* Center Navigation Worlds */}
+        <nav
+          className="hidden lg:flex items-center gap-1 font-mono text-xs font-bold text-deepNavy"
+          aria-label="Main navigation"
+        >
+          {navigationWorlds.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollTo(item.target)}
+              className={`rounded-lg px-2.5 py-2 text-[11px] uppercase transition-colors ${item.color} hover:bg-deepNavy/5`}
+            >
+              {item.label}
+            </button>
+          ))}
+        </nav>
+
+        {/* Right CTA / Connect */}
+        <div className="flex items-center gap-3">
+          <a
+            href={profile.resumePath}
+            download
+            className="hidden sm:inline-flex items-center gap-1.5 rounded-lg border-2 border-deepNavy bg-softYellow/60 px-3.5 py-1.5 font-mono text-xs font-bold text-deepNavy shadow-brutalSm transition hover:bg-softYellow hover:-translate-y-0.5"
+          >
+            <span>Resume</span>
+            <ArrowUpRight className="h-3.5 w-3.5" />
+          </a>
+
+          <button
+            onClick={() => scrollTo("contact")}
+            className="hidden sm:inline-flex items-center gap-2 rounded-lg border-2 border-deepNavy bg-coral px-4 py-1.5 font-display text-xs font-bold uppercase tracking-wider text-white shadow-brutalSm transition hover:-translate-y-0.5 hover:shadow-brutal"
+          >
+            <Sparkles className="h-3.5 w-3.5" />
+            LET&apos;S CONNECT
           </button>
 
-          <nav className="hidden items-center gap-1 md:flex">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => goTo(item.id)}
-                className={`relative rounded-full px-4 py-2 text-sm transition ${
-                  active === item.id ? "text-white" : "text-slate-300 hover:text-white"
-                }`}
-              >
-                {active === item.id && (
-                  <motion.span
-                    layoutId="nav-pill"
-                    className="absolute inset-0 -z-10 rounded-full bg-white/10"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
-                {item.label}
-              </button>
-            ))}
-          </nav>
-
-          <div className="flex items-center gap-2">
-            <a
-              href={profile.resumePath}
-              download
-              className="hidden items-center gap-2 rounded-full bg-grad-brand px-4 py-2 text-sm font-semibold sm:inline-flex"
-            >
-              <Download className="h-4 w-4" />
-              CV
-            </a>
-            <button
-              onClick={() => setOpen((value) => !value)}
-              className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 md:hidden"
-              aria-label="Toggle menu"
-            >
-              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </button>
-          </div>
+          {/* Mobile hamburger */}
+          <button
+            type="button"
+            onClick={() => setOpen((prev) => !prev)}
+            className="grid h-9 w-9 place-items-center rounded-lg border-2 border-deepNavy bg-white text-deepNavy shadow-brutalSm lg:hidden"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-navigation"
+          >
+            {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+          </button>
         </div>
+      </div>
 
-        <AnimatePresence>
-          {open && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              className="glass mt-2 grid gap-1 rounded-2xl p-3 md:hidden"
-            >
-              {navItems.map((item) => (
+      {/* Mobile Drawer */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            id="mobile-navigation"
+            className="mt-2 rounded-2xl border-2 border-deepNavy bg-white p-5 shadow-brutal lg:hidden"
+          >
+            <nav className="flex flex-col gap-2 font-mono text-xs font-bold" aria-label="Mobile Navigation">
+              {navigationWorlds.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => goTo(item.id)}
-                  className={`rounded-xl px-4 py-3 text-left text-sm transition ${
-                    active === item.id ? "bg-white/10 text-white" : "text-slate-300 hover:bg-white/5"
-                  }`}
+                  onClick={() => scrollTo(item.target)}
+                  className="flex items-center justify-between rounded-xl border border-deepNavy/20 p-3 text-left text-deepNavy hover:bg-softYellow/40"
                 >
-                  {item.label}
+                  <span>{item.label}</span>
+                  <ArrowUpRight className="h-4 w-4 text-deepNavy/50" />
                 </button>
               ))}
-              <a
-                href={profile.resumePath}
-                download
-                className="mt-1 inline-flex items-center justify-center gap-2 rounded-xl bg-grad-brand px-4 py-3 text-sm font-semibold"
-              >
-                <Download className="h-4 w-4" /> Download CV
-              </a>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </motion.header>
+
+              <div className="pt-3 flex flex-col gap-2">
+                <button
+                  onClick={() => scrollTo("contact")}
+                  className="btn-play-coral w-full py-2.5 text-xs text-center"
+                >
+                  LET&apos;S CONNECT
+                </button>
+                <a
+                  href={profile.resumePath}
+                  download
+                  className="btn-play-white w-full py-2.5 text-xs text-center"
+                >
+                  DOWNLOAD RESUME [PDF]
+                </a>
+              </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
   );
 }
 

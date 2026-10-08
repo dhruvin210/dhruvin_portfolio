@@ -1,147 +1,34 @@
-import { useEffect, useRef } from "react";
-import * as THREE from "three";
-
 function Background() {
-  const canvasRef = useRef(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    /* ── Renderer ── */
-    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setSize(window.innerWidth, window.innerHeight);
-
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(
-      60,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      200
-    );
-    camera.position.z = 40;
-
-    /* ── 3000 colored particles ── */
-    const count = 3000;
-    const geo = new THREE.BufferGeometry();
-    const pos = new Float32Array(count * 3);
-    const col = new Float32Array(count * 3);
-    const colors = [
-      [0.36, 0.54, 0.96],  // blue
-      [0.67, 0.55, 0.98],  // violet
-      [0.20, 0.83, 0.60],  // green
-    ];
-
-    for (let i = 0; i < count; i++) {
-      pos[i * 3]     = (Math.random() - 0.5) * 120;
-      pos[i * 3 + 1] = (Math.random() - 0.5) * 120;
-      pos[i * 3 + 2] = (Math.random() - 0.5) * 80;
-      const c = colors[Math.floor(Math.random() * colors.length)];
-      col[i * 3]     = c[0];
-      col[i * 3 + 1] = c[1];
-      col[i * 3 + 2] = c[2];
-    }
-
-    geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
-    geo.setAttribute("color",    new THREE.BufferAttribute(col, 3));
-
-    const mat = new THREE.PointsMaterial({
-      size: 0.22,
-      vertexColors: true,
-      transparent: true,
-      opacity: 0.75,
-    });
-    const stars = new THREE.Points(geo, mat);
-    scene.add(stars);
-
-    /* ── Wireframe ring 1 ── */
-    const torus = new THREE.Mesh(
-      new THREE.TorusGeometry(8, 0.5, 16, 80),
-      new THREE.MeshBasicMaterial({
-        color: 0x5b8af5,
-        wireframe: true,
-        transparent: true,
-        opacity: 0.12,
-      })
-    );
-    torus.position.set(20, -10, -15);
-    scene.add(torus);
-
-    /* ── Wireframe ring 2 ── */
-    const torus2 = new THREE.Mesh(
-      new THREE.TorusGeometry(5, 0.3, 16, 60),
-      new THREE.MeshBasicMaterial({
-        color: 0xa78bfa,
-        wireframe: true,
-        transparent: true,
-        opacity: 0.1,
-      })
-    );
-    torus2.position.set(-18, 8, -20);
-    scene.add(torus2);
-
-    /* ── Mouse parallax ── */
-    let mouseX = 0, mouseY = 0;
-    const onMouseMove = (e) => {
-      mouseX = (e.clientX / window.innerWidth  - 0.5) * 2;
-      mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
-    };
-    document.addEventListener("mousemove", onMouseMove);
-
-    /* ── Animation loop ── */
-    let t = 0;
-    let rafId;
-    function animate() {
-      rafId = requestAnimationFrame(animate);
-      t += 0.003;
-
-      stars.rotation.y  += 0.0002;
-      stars.rotation.x  += 0.0001;
-
-      torus.rotation.x   = t * 0.4;
-      torus.rotation.y   = t * 0.3;
-
-      torus2.rotation.x  = -t * 0.25;
-      torus2.rotation.z  =  t * 0.35;
-
-      camera.position.x += (mouseX * 3 - camera.position.x) * 0.03;
-      camera.position.y += (-mouseY * 3 - camera.position.y) * 0.03;
-      camera.lookAt(scene.position);
-
-      renderer.render(scene, camera);
-    }
-    animate();
-
-    /* ── Resize handler ── */
-    const onResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    };
-    window.addEventListener("resize", onResize);
-
-    /* ── Cleanup ── */
-    return () => {
-      cancelAnimationFrame(rafId);
-      document.removeEventListener("mousemove", onMouseMove);
-      window.removeEventListener("resize", onResize);
-      renderer.dispose();
-      geo.dispose();
-      mat.dispose();
-    };
-  }, []);
-
   return (
-    <canvas
-      ref={canvasRef}
-      style={{
-        position: "fixed",
-        inset: 0,
-        zIndex: 0,
-        pointerEvents: "none",
-      }}
-    />
+    <div
+      aria-hidden="true"
+      className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
+    >
+      {/* Playful Dotted Grid Pattern */}
+      <svg className="absolute inset-0 h-full w-full opacity-[0.35]" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="dot-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.5" fill="#151923" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#dot-grid)" />
+      </svg>
+
+      {/* Small, purposefully placed color cues. Sections carry the main palette. */}
+
+      {/* Floating Graphic Symbols (SVGs) */}
+      <svg className="absolute top-20 right-16 hidden opacity-35 text-electricBlue motion-safe:animate-pulse lg:block" width="36" height="36" viewBox="0 0 36 36">
+        <path d="M18 0L22 14L36 18L22 22L18 36L14 22L0 18L14 14Z" fill="currentColor" />
+      </svg>
+
+      <svg className="absolute top-1/2 left-10 hidden lg:block opacity-30 text-coral" width="28" height="28" viewBox="0 0 28 28">
+        <circle cx="14" cy="14" r="12" fill="none" stroke="currentColor" strokeWidth="3" strokeDasharray="4 4" />
+      </svg>
+
+      <svg className="absolute bottom-1/3 right-12 hidden lg:block opacity-35 text-mint" width="32" height="32" viewBox="0 0 32 32">
+        <rect x="4" y="4" width="24" height="24" rx="6" fill="none" stroke="currentColor" strokeWidth="3" transform="rotate(45 16 16)" />
+      </svg>
+    </div>
   );
 }
 
